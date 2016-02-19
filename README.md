@@ -36,7 +36,7 @@ create function auth_user
   as 'com.cloudera.hive.udf.HiveSentrySubjectNameGenericUDF';
 ```
 
-### Hive setup
+### Impala setup
 
 Build the Impala UDF shared library, as explained in the [`impala-udf` README file](impala-udf/README.md). Upload the shared library to the appropriate HDFS location.
 
@@ -46,7 +46,7 @@ Then create the Impala UDF as per below:
 drop function if exists auth_user();
 create function auth_user()
   returns string
-  location '/path/to/libudfsample.so'
+  location '/path/to/libuser_shortname.so'
   symbol='ImpalaUserShortNameUDF';
 ```
 

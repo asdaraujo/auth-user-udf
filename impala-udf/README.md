@@ -2,7 +2,8 @@
 
 ### Build
 
-1. Install prerequisite packages:
+1. Install prerequisite packages
+See detailed instructions at [Impala User-Defined Functions](http://www.cloudera.com/documentation/enterprise/latest/topics/impala_udf.html):
 ```
 sudo yum install gcc-c++ cmake boost-devel
 sudo yum install impala-udf-devel

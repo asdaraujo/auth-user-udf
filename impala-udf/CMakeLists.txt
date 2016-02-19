@@ -12,13 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# CDH dirs
-set(CDH_HOME "/opt/cloudera/parcels/CDH")
-set(CDH_INCLUDE "${CDH_HOME}/include")
-set(CDH_LIBPATH "${CDH_HOME}/lib64")
-include_directories(${CDH_INCLUDE})
-link_directories(${CDH_LIBPATH})
-
 # where to put generated libraries
 set(LIBRARY_OUTPUT_PATH "./build_output")
 # where to put generated binaries
@@ -34,7 +27,7 @@ function(COMPILE_TO_IR SRC_FILE)
   add_custom_command(
     OUTPUT ${OUTPUT_FILE}
     COMMAND ${LLVM_CLANG_EXECUTABLE} ${IR_COMPILE_FLAGS} ${CLANG_INCLUDE_FLAGS} ${SRC_FILE} -o ${OUTPUT_FILE}
-    DEPENDS ${SRC_FILE} ${CDH_INCLUDE}/impala_udf/udf.h)
+    DEPENDS ${SRC_FILE})
   add_custom_target(${BASE_NAME}-ir ALL DEPENDS ${OUTPUT_FILE})
 endfunction(COMPILE_TO_IR)
 
